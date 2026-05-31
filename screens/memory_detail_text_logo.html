@@ -1,0 +1,303 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dream Photo - Memory Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary": "#ffffff",
+                "surface-container-low": "#f5f2fb",
+                "surface-container": "#efecf5",
+                "background": "#fbf8ff",
+                "on-tertiary-fixed": "#390c00",
+                "on-tertiary-fixed-variant": "#7b2e12",
+                "primary-fixed": "#e0e0ff",
+                "background-gray": "#F5F5F7",
+                "surface-container-highest": "#e4e1ea",
+                "on-surface-variant": "#454652",
+                "on-error-container": "#93000a",
+                "surface-bright": "#fbf8ff",
+                "on-surface": "#1b1b21",
+                "primary-fixed-dim": "#bdc2ff",
+                "error": "#ba1a1a",
+                "on-secondary": "#ffffff",
+                "tertiary": "#380b00",
+                "inverse-on-surface": "#f2eff8",
+                "on-secondary-fixed-variant": "#454747",
+                "secondary-container": "#dfe0e0",
+                "accent-purple": "#9C27B0",
+                "tertiary-fixed-dim": "#ffb59d",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-gray": "#FAFAFB",
+                "primary": "#000666",
+                "on-error": "#ffffff",
+                "on-primary-fixed": "#000767",
+                "secondary-fixed": "#e2e2e2",
+                "surface-variant": "#e4e1ea",
+                "surface-container-lowest": "#ffffff",
+                "text-muted": "#636366",
+                "primary-container": "#1a237e",
+                "inverse-primary": "#bdc2ff",
+                "surface": "#fbf8ff",
+                "tertiary-container": "#5c1800",
+                "on-secondary-fixed": "#1a1c1c",
+                "on-secondary-container": "#616363",
+                "on-primary-container": "#8690ee",
+                "on-background": "#1b1b21",
+                "text-main": "#1C1C1E",
+                "tertiary-fixed": "#ffdbd0",
+                "surface-container-high": "#eae7ef",
+                "outline-variant": "#c6c5d4",
+                "inverse-surface": "#303036",
+                "surface-tint": "#4c56af",
+                "on-primary-fixed-variant": "#343d96",
+                "surface-dim": "#dbd9e1",
+                "on-tertiary-container": "#e17c5a",
+                "secondary": "#5d5f5f",
+                "outline": "#767683",
+                "secondary-fixed-dim": "#c6c6c7"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "margin-desktop": "40px",
+                "base": "4px",
+                "stack-sm": "8px",
+                "gutter": "16px",
+                "stack-md": "16px",
+                "stack-lg": "32px"
+        },
+        "fontFamily": {
+                "headline-sm": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Manrope"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "11px",
+                        {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #F5F5F7;
+        }
+        .ai-shimmer {
+            background: linear-gradient(90deg, rgba(156, 39, 176, 0.05) 0%, rgba(156, 39, 176, 0.15) 50%, rgba(156, 39, 176, 0.05) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+        .premium-shadow {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body-lg text-text-main pb-24 md:pb-0 bg-gradient-to-br from-[#eaf2ff] via-[#f3e8ff] to-[#ffece6] min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-transparent z-40 transition-shadow duration-300" id="topAppBar">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-7xl mx-auto backdrop-blur-md bg-white/30 border-b border-white/20">
+<button aria-label="Back" class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined font-headline-sm text-headline-sm" data-icon="arrow_back" data-weight="regular">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary flex-1 text-center"><div class="flex items-center justify-center gap-1.5"><span class="font-display-lg text-headline-md text-primary tracking-tight">Dream Photo</span><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">auto_awesome</span></div></h1>
+<div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center text-primary hover:opacity-80 transition-opacity cursor-pointer border border-white/50 shadow-sm">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6rvJSMCsHXSPdL8yhqFDqATpFY_OIpNse262i798t3BWH3vo-Rv1-oQ7VKSDQIQJUK5yLSp1Cefi02hSbiU-7vurzgh5xyBMsQ3uhfl5EzuUVJzstZhk-_ZVIV0vpRxANpu7s3fjzLRuIQvZbzWpDthaYz3dWYU-5ZIy2mZXl1m5z5hnkqIRrQXZoNgrUfM1XrTBcYToU_iWUvo3Q3gzoYTAPDGevgCCg7fOmBF-8XYIZHN38sa15eBnJdMJRpbV2PyrEKmwbnNBs">
+</div>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Hero Section / Title -->
+<div class="mb-stack-lg flex flex-col items-center text-center">
+<h2 class="font-display-lg text-display-lg text-primary mb-stack-sm drop-shadow-sm">Summer in Kyoto</h2>
+<div class="flex flex-wrap gap-2 justify-center mt-2">
+<span class="px-4 py-1.5 glass-card rounded-full font-label-md text-label-md text-text-muted flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="location_on">location_on</span>
+                    Kyoto, Japan
+                </span>
+<span class="px-4 py-1.5 glass-card rounded-full font-label-md text-label-md text-text-muted flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+                    August 2023
+                </span>
+</div>
+</div>
+<!-- AI Summary Card -->
+<div class="glass-card rounded-[24px] p-6 mb-stack-lg premium-shadow relative overflow-hidden">
+<div class="absolute inset-0 ai-shimmer opacity-20 pointer-events-none"></div>
+<div class="flex items-start gap-gutter relative z-10">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm border border-white/60">
+<span class="material-symbols-outlined text-accent-purple" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">AI Memory Summary</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                        A vibrant collection capturing the essence of a warm August in Kyoto. The photos highlight a mix of serene temple visits, bustling street markets in Gion, and peaceful moments by the Kamo River. The lighting throughout suggests sunny, clear days with a distinct golden hour warmth in the evening shots.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Photo Gallery -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[220px]">
+<!-- Featured Large -->
+<div class="col-span-2 row-span-2 rounded-[20px] overflow-hidden relative group cursor-pointer premium-shadow border border-white/40">
+<img alt="Featured memory" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene view of the Kinkaku-ji temple pavilion in Kyoto covered in golden leaf, reflecting perfectly in the calm pond below. The sky is bright blue, indicating a warm summer day. The scene is shot from a slightly low angle, enhancing the grandeur of the architecture against the lush green pine trees. The overall aesthetic is bright, high-end travel photography, emphasizing the pure white and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF1BMIYm4cJXXHzF-RhLZX9OqnNSrHck1oEjyyvZrK0A7ACnDi2zpJ6z3OLwmeu5igM7nSd2w2AHRqpNpTgIBHJ1TPLJR7-gnCX2EGW0I5PocUGwlZ_pjGViuYG8bGI6oiJFGT7ketNuMibCwravK79JVu6OG0jHCnpd6cxIkhYZq-8doJ5KxcTmrgcc9hLDiZmSVV9d-bsJLyT080vftPK-MNvcwzGaf8oiKMDeaafCclTr73CHO62KeZbkLFnFeI6O5evMWqaz0G">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+<span class="font-label-md text-label-md text-white font-medium drop-shadow-md">Kinkaku-ji Pavilion</span>
+</div>
+</div>
+<!-- Standard Grids -->
+<div class="rounded-[20px] overflow-hidden relative group cursor-pointer premium-shadow border border-white/40">
+<img alt="Memory" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of a traditional Japanese matcha tea set on a dark wooden table in Kyoto. The vivid green of the tea contrasts beautifully with the rustic, handmade ceramic bowl. Natural sunlight filters through a bamboo screen, creating soft, dappled shadows across the composition. The aesthetic is minimalist and focus-driven, highlighting the textures of the materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByuF5AIvUaUWA7gpTdsny9HmjB9HJ-O-X9Qp1wrfsyPR-Jd5YFguDoSCdYjrfgH6LHFY4bAC7Z1hwcOUS0wkrgA1O3NW2VVHf8YoyMtLBWqsHJYlddCixa5G2MNNlh63jHCZfjnwN5E1tfH3vCyNPbkJ13E1m7U-5aXIuq4H0bxpGj__kGAQHfUTO-Iu2Bxxws0lQS8fElAAtAHwbFI5prPcxWAHkWAtI-b7JG58f_R7jdxpQFYG8_sdWun9JcwuIqBFd5_XTUCATk">
+</div>
+<div class="rounded-[20px] overflow-hidden relative group cursor-pointer premium-shadow border border-white/40">
+<img alt="Memory" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide angle shot looking down a narrow, traditional street in the Gion district of Kyoto at dusk. The wooden machiya houses are warmly lit by lanterns, creating an inviting, nostalgic atmosphere. A few blurred figures suggest movement in the distance. The color palette leans heavily into warm oranges and deep, twilight blues, conveying a sense of historic charm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALDnp8OAqRpBI7H0byBphrS9d9jFDhN2aYGKFsLQN0g28QyRuRsn-VI8WvpB9S6iVkyBnos9Qi9TY4L2uRxugX5OKOk3bHTIlAKSEB-2CumN-rD0LKVy2t-Uob9rpDb8T9CRW1lCGVKLw1FafyXTnkvPaQQm_W2vjj4gR3mG9oIwxW_YyS-7V5A5_SHa9WXD7nXrO56DpTwOLNfEqfSzgafGvalyb2ZgNxsHnXKp5_WFe807dgl46BjYb0mC4TnVspyV3bbvhrE9X7">
+</div>
+<div class="rounded-[20px] overflow-hidden relative group cursor-pointer premium-shadow border border-white/40 col-span-2 md:col-span-1 md:row-span-2">
+<img alt="Memory" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A vertical shot of towering green bamboo stalks in the Arashiyama Bamboo Grove in Kyoto. The perspective is looking upwards, emphasizing the height and scale of the forest. Soft, ethereal light streams down through the dense canopy above. The image uses a cool, calming palette of various greens, creating a peaceful, meditative mood typical of high-end nature photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcu5XZkVI4fAuOMyfH60k9UY3CwH-XO6NlGep8PhPdfX1dxbhHcU6mGLly93UPRXBG9EBOXifX_0Q6x8U53-n2HDtZT6-k5rN-dsQWHC3aERY8RmOpKYKh_ljEAyddZtz_c49FhEESFRkD7E7oRJWZdeaeghNrmLcUJFOk4CEkPxPRgCATriUFlzwB2Ly6rjR5cs-mw71UjQwfRM8jd4KX4AoTUg6WBVt3wZ5ST_QzoPweTgPDFwD1QBqBFhO031S4TzghJyJ3mkuA">
+</div>
+<div class="rounded-[20px] overflow-hidden relative group cursor-pointer premium-shadow border border-white/40">
+<img alt="Memory" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detail shot of intricate wooden carvings on a temple gate in Kyoto. The craftsmanship is highlighted by sharp, directional morning sunlight, casting deep shadows that emphasize the texture and age of the wood. The focus is incredibly sharp on the central carving, with the background softly blurred out. The aesthetic is grounded, earthy, and respectful of historical details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUdqOJq01jVCJjvSmArz2uBqcPdGHkKlaMrFcLGJCDmX2ElFmIi2X_tXq84tu82oWVV0BVegLoJMoDKJXAx8ZL3iqjVfl5bbVI-2MXBiVLG1jOsd5s-DG5L_lqcHiCKgniw2AYbnM6LBTjBtfipuJZsJIT6FjPTSDlekvRN9e40QkZdg9Ffb4mf8duc2WKV11wmadmVu_oCZ3jowmIIASfnFXbyUv_NLCiFMULMXZJpw4W-wPH3eorDoQYeEDXGtDMICsoJZXhbjmA">
+</div>
+<div class="rounded-[20px] overflow-hidden relative group cursor-pointer glass-card flex flex-col items-center justify-center text-primary premium-shadow transition-colors hover:bg-white/80 border border-white/40">
+<span class="material-symbols-outlined text-[32px] mb-2 text-primary" data-icon="imagesmode">imagesmode</span>
+<span class="font-label-sm text-label-sm font-semibold">+ 42 More</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-[28px] glass-card shadow-[0_-4px_24px_rgba(0,0,0,0.06)] border-t border-white/40">
+<div class="flex justify-around items-center px-6 py-3 pb-safe-bottom w-full"><!-- Search Button -->
+<button aria-label="Search" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200 p-2 min-w-[64px]">
+  <span class="material-symbols-outlined text-[24px]" data-icon="search">search</span>
+  <span class="font-label-sm text-label-sm font-medium">Search</span>
+</button>
+
+<!-- Active Memories Button -->
+<button aria-label="Memories" class="flex flex-col items-center justify-center gap-1 bg-primary text-white rounded-full px-6 py-2.5 shadow-md hover:shadow-lg transition-all active:scale-95 duration-200">
+  <span class="material-symbols-outlined text-[24px]" data-icon="auto_awesome_motion" style="font-variation-settings: 'FILL' 1;">auto_awesome_motion</span>
+  <span class="font-label-sm text-label-sm font-semibold">Memories</span>
+</button>
+
+<!-- Timeline Button -->
+<button aria-label="Timeline" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200 p-2 min-w-[64px]">
+  <span class="material-symbols-outlined text-[24px]" data-icon="calendar_view_day">calendar_view_day</span>
+  <span class="font-label-sm text-label-sm font-medium">Timeline</span>
+</button></div>
+</nav>
+<script>
+        // Simple scroll effect for TopAppBar shadow
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('topAppBar');
+            const headerContent = header.firstElementChild;
+            if (window.scrollY > 10) {
+                headerContent.classList.add('shadow-sm');
+                headerContent.classList.replace('bg-white/30', 'bg-white/70');
+            } else {
+                headerContent.classList.remove('shadow-sm');
+                headerContent.classList.replace('bg-white/70', 'bg-white/30');
+            }
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

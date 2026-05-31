@@ -1,0 +1,231 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>Dream Photo - Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#e17c5a",
+                        "background-gray": "#F5F5F7",
+                        "primary": "#000666",
+                        "surface-variant": "#e4e1ea",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "outline": "#767683",
+                        "tertiary": "#380b00",
+                        "on-tertiary-fixed-variant": "#7b2e12",
+                        "surface-container-highest": "#e4e1ea",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-primary-container": "#8690ee",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5d5f5f",
+                        "inverse-on-surface": "#f2eff8",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#5c1800",
+                        "on-secondary-fixed-variant": "#454747",
+                        "accent-purple": "#9C27B0",
+                        "text-main": "#1C1C1E",
+                        "secondary-container": "#dfe0e0",
+                        "surface-bright": "#fbf8ff",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf8ff",
+                        "on-primary-fixed-variant": "#343d96",
+                        "inverse-surface": "#303036",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#4c56af",
+                        "on-tertiary-fixed": "#390c00",
+                        "inverse-primary": "#bdc2ff",
+                        "text-muted": "#636366",
+                        "primary-fixed": "#e0e0ff",
+                        "tertiary-fixed": "#ffdbd0",
+                        "primary-container": "#1a237e",
+                        "surface-gray": "#FAFAFB",
+                        "surface-container-high": "#eae7ef",
+                        "surface-dim": "#dbd9e1",
+                        "on-surface": "#1b1b21",
+                        "outline-variant": "#c6c5d4",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "surface-container-low": "#f5f2fb",
+                        "on-secondary-container": "#616363",
+                        "on-background": "#1b1b21",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#000767",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#efecf5",
+                        "on-surface-variant": "#454652",
+                        "background": "#fbf8ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "stack-md": "16px",
+                        "margin-desktop": "40px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined[data-weight="fill"] { font-variation-settings: 'FILL' 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#eff6ff] via-[#faf5ff] to-[#fff7ed] text-on-background antialiased min-h-screen flex flex-col font-body-lg overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-transparent transition-colors duration-300">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-7xl mx-auto backdrop-blur-md bg-white/30">
+<!-- Back Button for Search Results -->
+<button aria-label="Go back" class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-150 p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-2 group cursor-pointer"><span class="font-display-lg text-headline-md text-primary tracking-tight">Dream Photo</span><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">auto_awesome</span></div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden hover:opacity-80 transition-opacity cursor-pointer shadow-sm">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB--gwT7TM7J2Xi0egb1q-dWKp4xi-gUgg4KStxjVxSnAUEi4R7bLIv8K-52TThCNBjvw_mWyA7k3-4G15Jlmc_vXE-eYhg3kiWHveHFl3uE91VbmbFbt0qNaC8qR3DTfeqDqZn4QFXOvZN_YN_D65LeY-WjVV23Sgi3ZHh8n3NodaRFhum1Jmbmgr01TOVSqUTGZqE8tkr4plTs39S3CwxycF-e4gps5MfXzGa14-mS7SDT7ucZM3SvgCuDoAmIITXtUmWLuHfQpsQ">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full max-w-7xl mx-auto px-margin-mobile pt-stack-sm pb-24 md:pb-stack-lg">
+<!-- Search Context -->
+<div class="mb-stack-lg animate-fade-in-up" style="animation: fadeInUp 0.5s ease-out;">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">search</span>
+<span class="font-body-md text-body-md text-secondary">Search results for</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-background">"Trip"</h2>
+<div class="flex gap-2 mt-stack-sm overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-md border border-white/60 shadow-sm font-label-md text-label-md text-on-surface-variant hover:bg-white/70 transition-colors whitespace-nowrap">Location</button>
+<button class="px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-md border border-white/60 shadow-sm font-label-md text-label-md text-on-surface-variant hover:bg-white/70 transition-colors whitespace-nowrap">People</button>
+<button class="px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-md border border-white/60 shadow-sm font-label-md text-label-md text-on-surface-variant hover:bg-white/70 transition-colors whitespace-nowrap">Date</button>
+</div>
+</div>
+<!-- Results List -->
+<div class="flex flex-col gap-stack-md">
+<!-- Result Group 1 -->
+<div class="group bg-white/60 backdrop-blur-[20px] rounded-[20px] p-4 flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,0,0,0.05)] border border-white/50 hover:shadow-[0_8px_30px_0_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer active:scale-[0.98]">
+<div class="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high relative shadow-sm">
+<img alt="A high-quality, bright photograph of a coastal beach town in South Korea during summer. The sky is clear blue with soft, fluffy clouds. The light is natural and warm, casting soft shadows on the sandy beach. The overall aesthetic is clean, modern, and inviting, fitting for a premium travel memory." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, bright photograph of a coastal beach town in South Korea during summer. The sky is clear blue with soft, fluffy clouds. The light is natural and warm, casting soft shadows on the sandy beach. The overall aesthetic is clean, modern, and inviting, fitting for a premium travel memory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpyJ1QntY6q95V_37go541iMEIFKe98nqYdxKbEEQC-kyCtNFDtADQUXCP-IUvwcgBsFbzWRbjhHOZf75z0LSFbl3VOHdD6vvn9-9-NgwwMBFN2kubiryGsB_IBaOyD3w_KYDJwOtSz_hBRIrWR6uhrGxXHNJSSSskDkbDnyuQFGPKTQHhk2UCFx1jQwE5Fi1SH-uTNxsPavVfhqjS25eFce7jzvSvvlcEtwVqhsT6IdGtgC5fwiiS7y0HXfRQSh2n5dAYhrQRV6f9">
+</div>
+<div class="flex-grow"><h3 class="font-headline-sm text-headline-sm text-on-background line-clamp-1">Gangneung Trip</h3><div class="flex flex-wrap gap-1.5 mt-1.5"><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">East Sea Beach</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Coffee Street</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Seafood Market</span></div><p class="font-body-md text-body-md text-secondary mt-1.5">127 photos</p></div>
+<div class="pr-2 text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Result Group 2 -->
+<div class="group bg-white/60 backdrop-blur-[20px] rounded-[20px] p-4 flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,0,0,0.05)] border border-white/50 hover:shadow-[0_8px_30px_0_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer active:scale-[0.98]">
+<div class="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high relative shadow-sm">
+<div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-0.5">
+<img alt="A close-up shot of a modern, sleek city street at twilight. Neon lights subtly reflect off wet pavement. The color palette features deep blues and subtle purples, maintaining a clean, premium visual style. The lighting is moody yet bright enough to distinguish details clearly." class="w-full h-full object-cover" data-alt="A close-up shot of a modern, sleek city street at twilight. Neon lights subtly reflect off wet pavement. The color palette features deep blues and subtle purples, maintaining a clean, premium visual style. The lighting is moody yet bright enough to distinguish details clearly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyX_V9Z8Eo3jVjej_ioSwbjXYIcWNK_3pRm4ZIDZ2Q1zTQFm4An8Ty0Ud3gQMR9daJKD2Dae0_A-C8cRdBQW9LbLTeCF3Oun5wrhwMuggIRH68L0QhMG3H97-SjrgiESCB3pEmsrXWbV32EL5_8LY5TjFoqY3i_51Bbn0YmMD54rfiae-4_Or9HFOy1FzcGGjda0rPWsQk0y4xHYnBBcPfNCmAy8abRnbWyN1ZXkdY-A2Y_Rkox76Xt0JSROE0-Q5zKcoCYMve1Ov">
+<img alt="A well-lit interior shot of a professional office space focusing on architectural details. The lighting is soft and diffuse, highlighting the clean lines and minimalist design. The aesthetic is corporate but elegant, using a palette of whites, grays, and subtle metallic tones." class="w-full h-full object-cover" data-alt="A well-lit interior shot of a professional office space focusing on architectural details. The lighting is soft and diffuse, highlighting the clean lines and minimalist design. The aesthetic is corporate but elegant, using a palette of whites, grays, and subtle metallic tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfvdlQe3hODBRbv7A7WCoIPY754GQPRmqfbMEzlhR1IEBVRIPSItPo5PsIor-PXPJ7aTkCvgQcgA99H9xuziVIGtPUNURcvq8kEbsrYNgLxuMgkZAJORRCuEj1SQrwmTkpQA7SJfogyYSMf4BicV2aOALlVqjSn24A8zGZgGd7fciACo06WMZvfQsIAzTNfaWhpP8A_rVRf54xpzh-iT1B4T-moURqGo3cNNG43tHs9RGrBhnzXVUJLtwASmxGqm1Hb2per8y_C43q">
+<div class="col-span-2 h-full bg-[#f3f0f7] flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[24px]">collections</span>
+</div>
+</div>
+</div>
+<div class="flex-grow"><h3 class="font-headline-sm text-headline-sm text-on-background line-clamp-1">Business Trip - Seoul</h3><div class="flex flex-wrap gap-1.5 mt-1.5"><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Meetings</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Urban Night</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Modern Office</span></div><p class="font-body-md text-body-md text-secondary mt-1.5">45 photos • Sep 2023</p></div>
+<div class="pr-2 text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Result Group 3 -->
+<div class="group bg-white/60 backdrop-blur-[20px] rounded-[20px] p-4 flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,0,0,0.05)] border border-white/50 hover:shadow-[0_8px_30px_0_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer active:scale-[0.98]">
+<div class="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high relative shadow-sm">
+<img alt="A scenic landscape shot of misty mountains during early morning. The lighting is cool and ethereal, with fog rolling through the valleys. The color palette emphasizes greens, soft blues, and atmospheric whites. The composition is balanced and calming, reflecting a high-end nature photography style." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A scenic landscape shot of misty mountains during early morning. The lighting is cool and ethereal, with fog rolling through the valleys. The color palette emphasizes greens, soft blues, and atmospheric whites. The composition is balanced and calming, reflecting a high-end nature photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA79-LVD4sjs_cpeOk46UKYajs1jPzTO3UWQSADUaiijuu2lf0-6hH_8b_3VRx1JzLdyfbEabA06wPclxz9BUDUoznBbJNpZLHyevUKN0s9y2z3ZmgIdjgnn9YMS0u-GM9aF_kBNxRSoq2Ak1iocxUoSe2eqQD8Ugf6EaUgyebKP9xcm83LTLITuK7HNMQSSGZzu9rLYWPpoBZ4GH2cOwVwJ40jbnZOw8WEpcDhb652JoLBss0hQ06q9Jb0_N0JObcY1vEmWownEAmo">
+</div>
+<div class="flex-grow"><h3 class="font-headline-sm text-headline-sm text-on-background line-clamp-1">Hiking Trip</h3><div class="flex flex-wrap gap-1.5 mt-1.5"><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Mountain Peak</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Misty Valley</span><span class="px-2.5 py-0.5 rounded-full bg-white/50 text-[11px] font-medium text-secondary border border-white/60 shadow-sm">Nature Trail</span></div><p class="font-body-md text-body-md text-secondary mt-1.5">82 photos</p></div>
+<div class="pr-2 text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/80 backdrop-blur-xl shadow-[0_-4px_20px_0px_rgba(0,0,0,0.05)] rounded-t-2xl transition-colors duration-300">
+<!-- Active Tab: Search -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1.5 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-weight="fill">search</span>
+<span class="font-label-md text-label-md mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-colors active:scale-90 transition-transform duration-200 px-3 py-1.5 rounded-lg" href="#">
+<span class="material-symbols-outlined">auto_awesome_motion</span>
+<span class="font-label-md text-label-md mt-1">Memories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-colors active:scale-90 transition-transform duration-200 px-3 py-1.5 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_view_day</span>
+<span class="font-label-md text-label-md mt-1">Timeline</span>
+</a>
+</nav>
+<!-- Desktop Navigation Shell (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-white/80 backdrop-blur-xl border-r border-white/50 flex-col py-stack-md px-4 gap-2 z-30">
+<!-- Active Tab: Search -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl hover:opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-weight="fill">search</span>
+<span class="font-headline-sm text-headline-sm">Search</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">auto_awesome_motion</span>
+<span class="font-headline-sm text-headline-sm">Memories</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_view_day</span>
+<span class="font-headline-sm text-headline-sm">Timeline</span>
+</a>
+</nav>
+<style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Adjust main content padding for desktop layout */
+        @media (min-width: 768px) {
+            main {
+                padding-left: calc(16rem + 40px); /* 64 (nav width) + margin */
+            }
+        }
+    </style>
+
+
+
+
+</body></html>
