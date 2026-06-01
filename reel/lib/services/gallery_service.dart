@@ -5,8 +5,11 @@ import '../models/photo.dart';
 import 'database_service.dart';
 
 class GalleryService {
+  static final GalleryService instance = GalleryService._();
+  GalleryService._() : _db = DatabaseService();
+  factory GalleryService() => instance;
+
   final DatabaseService _db;
-  GalleryService(this._db);
 
   // 갤러리 접근 권한 요청
   Future<bool> requestPermission() async {

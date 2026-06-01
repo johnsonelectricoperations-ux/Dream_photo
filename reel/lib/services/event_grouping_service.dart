@@ -12,7 +12,9 @@ class EventGroupingService {
   static const int _timeGapHours = 6;       // 6시간 이상 간격 = 새 이벤트
   static const double _distanceKm = 50.0;   // 50km 이상 이동 = 새 이벤트
 
-  EventGroupingService(this._db);
+  static final EventGroupingService instance = EventGroupingService._();
+  EventGroupingService._() : _db = DatabaseService();
+  factory EventGroupingService() => instance;
 
   // 전체 사진을 이벤트로 그룹화
   Future<List<Event>> groupPhotosIntoEvents(List<Photo> photos) async {

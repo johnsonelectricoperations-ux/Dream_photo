@@ -14,12 +14,21 @@
 ## Phase 1 — MVP 준비
 
 - [x] 앱 이름 확정 → **Reel** (com.reel.album)
-- [ ] MVP 타겟 사용자 1순위 결정 (커플? 가족? 전 연령?)
-- [ ] 인화 제휴 업체 조사 (스냅스, 포토몬, 포토북스)
-- [ ] Flutter 프로젝트 초기 세팅
-- [ ] EXIF 파싱 + 이벤트 자동 그룹화 프로토타입
-- [ ] ML Kit 이미지 라벨링 테스트
-- [ ] UI/UX 와이어프레임
+- [x] MVP 타겟 사용자 1순위 결정 → 전 연령 (가족·커플·친구)
+- [x] 인화 제휴 업체 조사 → 스냅스 (사용자 확보 후 제휴 요청)
+- [x] Flutter 프로젝트 초기 세팅
+- [x] EXIF 파싱 + 이벤트 자동 그룹화 프로토타입 (services/event_grouping_service.dart)
+- [x] ML Kit 이미지 라벨링 테스트 (services/ml_kit_service.dart)
+- [x] UI/UX 와이어프레임 (screens/01~07 HTML + design.md)
+- [x] Riverpod providers 구현 (scan_provider, events_provider)
+- [x] 온보딩 화면 — 실제 서비스 연결 + 에러 처리
+- [x] 홈 화면 — 다크 헤더, AI 배너, 이벤트 목록, 하단 네비게이션
+- [x] 이벤트 상세 화면 — 커버, AI 태그, 사진 그리드, 포토북 FAB
+- [x] 검색 화면 — AI 추천 태그, 키워드 검색, 결과 그리드
+- [x] 공유 화면 — MVP 플레이스홀더
+- [x] 설정 화면 — AI 분석 토글, 알림, 데이터 초기화
+- [x] 앱 아이콘 설정 (flutter_launcher_icons + Reel_logo_2.png)
+- [ ] flutter pub get 후 앱 실행 확인 (집에서 진행)
 
 ## Phase 2 — 수익화
 

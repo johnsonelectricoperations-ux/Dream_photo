@@ -10,6 +10,20 @@ class EventCard extends StatelessWidget {
 
   const EventCard({super.key, required this.event, this.onTap});
 
+  // 커버 이미지 없을 때 이벤트 이름 기반 그라디언트 선택
+  static const _gradients = [
+    [Color(0xFF667eea), Color(0xFF764ba2)],
+    [Color(0xFFf093fb), Color(0xFFf5576c)],
+    [Color(0xFF4facfe), Color(0xFF00f2fe)],
+    [Color(0xFF43e97b), Color(0xFF38f9d7)],
+    [Color(0xFFfa709a), Color(0xFFfee140)],
+  ];
+
+  List<Color> _gradientColors() {
+    final idx = event.name.codeUnits.fold(0, (a, b) => a + b) % _gradients.length;
+    return _gradients[idx];
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,11 +34,7 @@ class EventCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppDimens.eventCardRadius),
           boxShadow: [
-            BoxShadow(
-              color: AppColors.cardShadow,
-              blurRadius: 12,
-              offset: const Offset(0, 4),
-            ),
+            BoxShadow(color: Colors.black.withOpacity(0.12), blurRadius: 16, offset: const Offset(0, 6)),
           ],
         ),
         child: ClipRRect(
@@ -32,9 +42,10 @@ class EventCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              _CoverImage(photoId: event.coverPhotoId),
-              _Gradient(),
+              _CoverImage(photoId: event.coverPhotoId, gradientColors: _gradientColors()),
+              _Overlay(),
               _EventInfo(event: event),
+              _PhotobookButton(),
             ],
           ),
         ),
@@ -45,16 +56,31 @@ class EventCard extends StatelessWidget {
 
 class _CoverImage extends StatelessWidget {
   final String photoId;
-  const _CoverImage({required this.photoId});
+  final List<Color> gradientColors;
+  const _CoverImage({required this.photoId, required this.gradientColors});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: DatabaseService로 파일 경로 조회 후 표시
-    return Container(color: AppColors.textSecondary.withOpacity(0.3));
+    // photoId가 파일 경로를 겸할 경우 이미지 로드 시도
+    if (photoId.startsWith('/')) {
+      final file = File(photoId);
+      if (file.existsSync()) {
+        return Image.file(file, fit: BoxFit.cover);
+      }
+    }
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: gradientColors,
+        ),
+      ),
+    );
   }
 }
 
-class _Gradient extends StatelessWidget {
+class _Overlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -77,43 +103,55 @@ class _EventInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 16,
-      right: 16,
-      bottom: 16,
+      left: 16, right: 80, bottom: 16,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             event.name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              letterSpacing: -0.3,
-            ),
+            style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800, letterSpacing: -0.3),
+            maxLines: 1, overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 4),
-          Row(
+          const SizedBox(height: 6),
+          Wrap(
+            spacing: 6, runSpacing: 4,
             children: [
-              Text(
-                event.dateRangeLabel,
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.8),
-                  fontSize: 13,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                '${event.photoCount}${AppStrings.photos}',
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.6),
-                  fontSize: 13,
-                ),
-              ),
+              _InfoChip(text: event.dateRangeLabel),
+              if (event.locationName != null) _InfoChip(text: event.locationName!),
+              _InfoChip(text: '${event.photoCount}장'),
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _InfoChip extends StatelessWidget {
+  final String text;
+  const _InfoChip({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text, style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 13));
+  }
+}
+
+class _PhotobookButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 14, bottom: 14,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.white.withOpacity(0.3)),
+          // frosted glass effect
+        ),
+        child: const Text('포토북', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700)),
       ),
     );
   }

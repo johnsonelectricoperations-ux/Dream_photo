@@ -6,6 +6,15 @@ import '../models/photo.dart';
 import 'database_service.dart';
 
 class MlKitService {
+  static final MlKitService instance = MlKitService._();
+  MlKitService._() : _db = DatabaseService() {
+    _labeler = ImageLabeler(
+      options: ImageLabelerOptions(confidenceThreshold: 0.75),
+    );
+    _textRecognizer = TextRecognizer(script: TextRecognitionScript.korean);
+  }
+  factory MlKitService() => instance;
+
   final DatabaseService _db;
   late final ImageLabeler _labeler;
   late final TextRecognizer _textRecognizer;
@@ -41,12 +50,6 @@ class MlKitService {
     'Festival': '축제',
   };
 
-  MlKitService(this._db) {
-    _labeler = ImageLabeler(
-      options: ImageLabelerOptions(confidenceThreshold: 0.75),
-    );
-    _textRecognizer = TextRecognizer(script: TextRecognitionScript.korean);
-  }
 
   // 사진 한 장 분석 (라벨링 + OCR)
   Future<Photo> analyzePhoto(Photo photo) async {
@@ -62,13 +65,14 @@ class MlKitService {
     return analyzed;
   }
 
-  // 백그라운드 일괄 분석 (충전 중일 때 조금씩)
-  Future<void> analyzeInBackground({
+  // 백그라운드 일괄 분석 (사진 목록을 직접 받거나, 없으면 DB에서 조회)
+  Future<void> analyzeInBackground(
+    List<Photo>? photos, {
     int batchSize = 10,
     void Function(int done, int total)? onProgress,
   }) async {
-    final pending = await _db.getUnanalyzedPhotos(limit: batchSize);
-    final total = await _db.getPhotoCount();
+    final pending = photos ?? await _db.getUnanalyzedPhotos(limit: batchSize);
+    final total = pending.length;
 
     for (int i = 0; i < pending.length; i++) {
       await analyzePhoto(pending[i]);
