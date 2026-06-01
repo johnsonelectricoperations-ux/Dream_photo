@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- Reel 로고 미리보기 — 다양한 크기·배경에서 아이콘 확인용 -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel — 로고 미리보기</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0D0D1A;
+    color: white;
+    padding: 48px 40px;
+    min-height: 100vh;
+  }
+  h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.8px; }
+  .sub { font-size: 15px; color: rgba(255,255,255,0.45); margin-bottom: 56px; }
+
+  .section { margin-bottom: 56px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+
+  /* 크기별 */
+  .size-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .size-item { text-align: center; }
+  .size-item .label {
+    display: block;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  .size-item .use {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 2px;
+  }
+
+  /* 배경색별 */
+  .bg-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .bg-chip {
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .bg-dark  { background: #1A1A2E; }
+  .bg-light { background: #F8F8F8; }
+  .bg-white { background: #ffffff; }
+  .bg-red   { background: #E94560; }
+  .bg-label {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.6;
+  }
+  .bg-dark .bg-label, .bg-red .bg-label { color: white; }
+  .bg-light .bg-label, .bg-white .bg-label { color: #1A1A2E; }
+
+  /* 스토어 아이콘 미리보기 */
+  .store-row { display: flex; gap: 32px; flex-wrap: wrap; }
+  .store-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    min-width: 200px;
+  }
+  .store-name { font-size: 13px; font-weight: 700; margin-top: 16px; color: rgba(255,255,255,0.8); }
+  .store-spec { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+  /* 스플래시 스크린 미리보기 */
+  .splash-preview {
+    width: 220px;
+    height: 380px;
+    background: #1A1A2E;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .splash-glow {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233,69,96,0.15) 0%, transparent 70%);
+    top: 30px;
+  }
+  .splash-app-name {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1.5px;
+  }
+  .splash-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* 다운로드 안내 */
+  .download-box {
+    background: rgba(233,69,96,0.08);
+    border: 1px solid rgba(233,69,96,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    max-width: 560px;
+  }
+  .download-title { font-size: 15px; font-weight: 700; color: #E94560; margin-bottom: 8px; }
+  .download-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  code {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-family: monospace;
+    color: rgba(255,255,255,0.8);
+  }
+</style>
+</head>
+<body>
+
+<h1>Reel 로고 시스템</h1>
+<p class="sub">필름 릴 + R 레터폼 조합 · 벡터(SVG) 기반 · 모든 크기에서 선명</p>
+
+<!-- 크기별 -->
+<div class="section">
+  <div class="section-title">크기별 미리보기</div>
+  <div class="size-row">
+    <div class="size-item">
+      <img src="../assets/logo.svg" width="512" height="512" alt="Reel logo 512">
+      <span class="label">512 × 512</span>
+      <span class="use">구글 플레이 스토어</span>
+    </div>
+    <div class="size-item">
+      <img src="../assets/logo.svg" width="192" height="192" alt="Reel logo 192">
+      <span class="label">192 × 192</span>
+      <span class="use">앱 아이콘 (고밀도)</span>
+    </div>
+    <div class="size-item">
+      <img src="../assets/logo.svg" width="96" height="96" alt="Reel logo 96">
+      <span class="label">96 × 96</span>
+      <span class="use">앱 아이콘 (중밀도)</span>
+    </div>
+    <div class="size-item">
+      <img src="../assets/logo.svg" width="48" height="48" alt="Reel logo 48">
+      <span class="label">48 × 48</span>
+      <span class="use">알림·탭바</span>
+    </div>
+    <div class="size-item">
+      <img src="../assets/logo.svg" width="32" height="32" alt="Reel logo 32">
+      <span class="label">32 × 32</span>
+      <span class="use">파비콘</span>
+    </div>
+  </div>
+</div>
+
+<!-- 배경색별 -->
+<div class="section">
+  <div class="section-title">배경색별 테스트</div>
+  <div class="bg-row">
+    <div class="bg-chip bg-dark">
+      <img src="../assets/logo.svg" width="80" height="80" alt="logo">
+      <div class="bg-label">다크 (기본)</div>
+    </div>
+    <div class="bg-chip bg-light">
+      <img src="../assets/logo.svg" width="80" height="80" alt="logo">
+      <div class="bg-label">라이트</div>
+    </div>
+    <div class="bg-chip bg-white">
+      <img src="../assets/logo.svg" width="80" height="80" alt="logo">
+      <div class="bg-label">흰색</div>
+    </div>
+    <div class="bg-chip bg-red">
+      <img src="../assets/logo.svg" width="80" height="80" alt="logo">
+      <div class="bg-label">액센트</div>
+    </div>
+  </div>
+</div>
+
+<!-- 스토어 사양별 -->
+<div class="section">
+  <div class="section-title">스토어 제출 사양</div>
+  <div class="store-row">
+    <div class="store-card">
+      <img src="../assets/logo.svg" width="108" height="108" style="border-radius:24px;" alt="logo">
+      <div class="store-name">구글 플레이 스토어</div>
+      <div class="store-spec">512 × 512px PNG · 32비트</div>
+    </div>
+    <div class="store-card">
+      <img src="../assets/logo.svg" width="108" height="108" style="border-radius:24px;" alt="logo">
+      <div class="store-name">앱 내 아이콘 (Android)</div>
+      <div class="store-spec">mipmap-xxxhdpi: 192×192px</div>
+    </div>
+    <div class="store-card">
+      <div class="splash-preview">
+        <div class="splash-glow"></div>
+        <img src="../assets/logo.svg" width="88" height="88" alt="logo">
+        <div class="splash-app-name">Reel</div>
+        <div class="splash-tagline">우리의 추억이<br>저절로 정리됩니다</div>
+      </div>
+      <div class="store-name">스플래시 스크린</div>
+      <div class="store-spec">로고 + 앱 이름 조합</div>
+    </div>
+  </div>
+</div>
+
+<!-- PNG 내보내기 안내 -->
+<div class="section">
+  <div class="section-title">PNG로 내보내기 (구글 플레이 등록용)</div>
+  <div class="download-box">
+    <div class="download-title">브라우저에서 PNG 추출 방법</div>
+    <div class="download-desc">
+      1. <code>logo.svg</code> 파일을 브라우저에서 열기<br>
+      2. 우클릭 → "다른 이름으로 저장" → SVG 저장<br>
+      3. <strong>무료 변환 도구 사용:</strong> svgtopng.com 에서 512×512 PNG 추출<br>
+      4. 구글 플레이 콘솔 → 앱 아이콘에 512×512 PNG 업로드<br><br>
+      또는 Inkscape(무료) 설치 후: <code>inkscape logo.svg --export-png=icon_512.png -w 512 -h 512</code>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

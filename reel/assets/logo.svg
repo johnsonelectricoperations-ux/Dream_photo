@@ -1,0 +1,78 @@
+<!-- Reel 앱 마스코트 로고 — 필름 릴 + R 레터폼 조합 (512×512 기준) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#16213E"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E94560"/>
+      <stop offset="100%" stop-color="#c73652"/>
+    </linearGradient>
+    <linearGradient id="reelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <!-- 아이콘 모서리 클립 -->
+    <clipPath id="iconClip">
+      <rect width="512" height="512" rx="114" ry="114"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#iconClip)">
+    <!-- 배경 -->
+    <rect width="512" height="512" fill="url(#bgGrad)"/>
+
+    <!-- 배경 광원 효과 -->
+    <ellipse cx="380" cy="120" rx="220" ry="220"
+      fill="rgba(233,69,96,0.08)"/>
+    <ellipse cx="120" cy="400" rx="160" ry="160"
+      fill="rgba(76,86,175,0.1)"/>
+
+    <!-- ── 필름 릴 (중앙 기준 256,256) ── -->
+
+    <!-- 외곽 링 -->
+    <circle cx="256" cy="256" r="178"
+      fill="none" stroke="url(#reelGrad)" stroke-width="28"/>
+
+    <!-- 스프로킷 홀 (릴 외곽 구멍 8개) -->
+    <circle cx="256" cy="96"  r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="374" cy="138" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="416" cy="256" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="374" cy="374" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="256" cy="416" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="138" cy="374" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="96"  cy="256" r="18" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="138" cy="138" r="18" fill="rgba(255,255,255,0.12)"/>
+
+    <!-- 릴 스포크 3개 (120도 간격) -->
+    <line x1="256" y1="256" x2="256" y2="100"
+      stroke="rgba(255,255,255,0.1)" stroke-width="22" stroke-linecap="round"/>
+    <line x1="256" y1="256" x2="391" y2="334"
+      stroke="rgba(255,255,255,0.1)" stroke-width="22" stroke-linecap="round"/>
+    <line x1="256" y1="256" x2="121" y2="334"
+      stroke="rgba(255,255,255,0.1)" stroke-width="22" stroke-linecap="round"/>
+
+    <!-- 릴 중앙 허브 -->
+    <circle cx="256" cy="256" r="68"
+      fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
+
+    <!-- ── 중앙 "R" 레터폼 ── -->
+    <!-- R 획: 세로줄 -->
+    <rect x="216" y="200" width="28" height="112" rx="10" fill="url(#accentGrad)"/>
+    <!-- R 획: 위 가로 반원 (arc) -->
+    <path d="M244,200 Q310,200 310,240 Q310,280 244,280"
+      fill="none" stroke="url(#accentGrad)" stroke-width="26" stroke-linecap="round"/>
+    <!-- R 획: 오른쪽 대각선 레그 -->
+    <line x1="244" y1="278" x2="306" y2="312"
+      stroke="url(#accentGrad)" stroke-width="26" stroke-linecap="round"/>
+
+    <!-- 릴 중앙 소형 허브 원 (R 뒤) -->
+    <circle cx="256" cy="256" r="28"
+      fill="#1A1A2E" stroke="rgba(233,69,96,0.3)" stroke-width="3"/>
+
+    <!-- 아이콘 테두리 광택 -->
+    <rect width="512" height="512" rx="114" ry="114"
+      fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+  </g>
+</svg>
