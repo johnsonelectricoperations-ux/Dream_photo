@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Reel — 홈</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+  .phone {
+    width: 390px;
+    min-height: 844px;
+    background: #F8F8F8;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  }
+  /* 상단 헤더 */
+  .header {
+    background: #1A1A2E;
+    padding: 52px 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-bg {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233,69,96,0.3) 0%, transparent 70%);
+    top: -60px; right: -40px;
+    pointer-events: none;
+  }
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .greeting {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.8px;
+  }
+  .header-title span { color: #E94560; }
+  .profile-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E94560, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+  }
+  /* 통계 칩 */
+  .stats-row {
+    display: flex;
+    gap: 10px;
+  }
+  .stat-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stat-chip .num {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+  }
+  .stat-chip .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  /* 스크롤 영역 */
+  .scroll-area {
+    padding: 20px 0 100px;
+    overflow-y: auto;
+    max-height: 680px;
+  }
+  .section {
+    margin-bottom: 24px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1A1A2E;
+    letter-spacing: -0.4px;
+  }
+  .section-more {
+    font-size: 13px;
+    font-weight: 600;
+    color: #E94560;
+  }
+
+  /* 히어로 이벤트 카드 */
+  .hero-card {
+    margin: 0 20px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 12px;
+  }
+  .hero-card .cover {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  }
+  .hero-card .info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 18px;
+  }
+  .hero-card .event-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .hero-card .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-card .meta span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .hero-card .meta-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+  }
+  .hero-card .photobook-btn {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* 작은 이벤트 카드 (가로 스크롤) */
+  .cards-row {
+    display: flex;
+    gap: 12px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cards-row::-webkit-scrollbar { display: none; }
+  .small-card {
+    flex-shrink: 0;
+    width: 140px;
+    height: 180px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .small-card .cover {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .small-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+  .small-card .info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px;
+  }
+  .small-card .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .small-card .count {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+  .card-a { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .card-b { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .card-c { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+  .card-d { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+  /* AI 분석 진행 배너 */
+  .ai-banner {
+    margin: 0 20px;
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ai-icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: rgba(233,69,96,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .ai-text { flex: 1; }
+  .ai-text .title {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3px;
+  }
+  .ai-text .desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .ai-progress {
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  .ai-progress-bar {
+    height: 100%;
+    width: 65%;
+    background: #E94560;
+    border-radius: 2px;
+  }
+
+  /* 하단 네비게이션 */
+  .bottom-nav {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding: 12px 0 24px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 16px;
+    border-radius: 12px;
+  }
+  .nav-item.active .nav-icon { color: #E94560; }
+  .nav-item .nav-icon {
+    font-size: 22px;
+    color: #C0C0C0;
+  }
+  .nav-item .nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #C0C0C0;
+    letter-spacing: 0.02em;
+  }
+  .nav-item.active .nav-label { color: #E94560; }
+  .nav-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #E94560;
+    margin-top: -2px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-bg"></div>
+    <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+    <div class="header-top">
+      <div>
+        <div class="greeting">안녕하세요 👋</div>
+        <div class="header-title">나의 <span>Reel</span></div>
+      </div>
+      <div class="profile-btn">K</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-chip">
+        <span class="num">2,847</span>
+        <span class="label">장</span>
+      </div>
+      <div class="stat-chip">
+        <span class="num">38</span>
+        <span class="label">추억</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스크롤 컨텐츠 -->
+  <div class="scroll-area">
+
+    <!-- AI 분석 배너 -->
+    <div style="padding: 16px 20px 4px;">
+      <div class="ai-banner">
+        <div class="ai-icon">✨</div>
+        <div class="ai-text">
+          <div class="title">AI가 추억을 정리하는 중</div>
+          <div class="desc">1,843장 분석 완료 · 1,004장 남음</div>
+          <div class="ai-progress">
+            <div class="ai-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 최근 추억 -->
+    <div class="section" style="margin-top: 20px;">
+      <div class="section-header">
+        <span class="section-title">최근 추억</span>
+        <span class="section-more">전체 보기</span>
+      </div>
+      <div class="hero-card">
+        <div class="cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f5576c 100%);"></div>
+        <div class="overlay"></div>
+        <div class="photobook-btn">📖 포토북</div>
+        <div class="info">
+          <div class="event-name">강릉 여름 여행</div>
+          <div class="meta">
+            <span>2024.08.01 ~ 08.03</span>
+            <div class="meta-dot"></div>
+            <span>24장</span>
+            <div class="meta-dot"></div>
+            <span>📍 강릉</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이번 달 추억 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">이번 달 추억</span>
+        <span class="section-more">전체 보기</span>
+      </div>
+      <div class="cards-row">
+        <div class="small-card">
+          <div class="cover card-a"></div>
+          <div class="overlay"></div>
+          <div class="info">
+            <div class="name">생일 파티</div>
+            <div class="count">18장</div>
+          </div>
+        </div>
+        <div class="small-card">
+          <div class="cover card-b"></div>
+          <div class="overlay"></div>
+          <div class="info">
+            <div class="name">가족 나들이</div>
+            <div class="count">31장</div>
+          </div>
+        </div>
+        <div class="small-card">
+          <div class="cover card-c"></div>
+          <div class="overlay"></div>
+          <div class="info">
+            <div class="name">봄 나들이</div>
+            <div class="count">12장</div>
+          </div>
+        </div>
+        <div class="small-card">
+          <div class="cover card-d"></div>
+          <div class="overlay"></div>
+          <div class="info">
+            <div class="name">저녁 모임</div>
+            <div class="count">9장</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 하단 네비게이션 -->
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <span class="nav-icon">⊞</span>
+      <span class="nav-label">홈</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">◎</span>
+      <span class="nav-label">추억</span>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">⊕</span>
+      <span class="nav-label">공유</span>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">☰</span>
+      <span class="nav-label">설정</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

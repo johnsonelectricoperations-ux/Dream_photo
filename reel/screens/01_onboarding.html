@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Reel — 온보딩</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #1A1A2E;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone {
+    width: 390px;
+    min-height: 844px;
+    background: #1A1A2E;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px 48px;
+  }
+  /* 배경 그라디언트 원 */
+  .bg-circle-1 {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233,69,96,0.2) 0%, transparent 70%);
+    top: -80px; right: -60px;
+    pointer-events: none;
+  }
+  .bg-circle-2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(76,86,175,0.25) 0%, transparent 70%);
+    bottom: 100px; left: -60px;
+    pointer-events: none;
+  }
+
+  /* 상태바 */
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* 로고 영역 */
+  .logo-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0 24px;
+  }
+  .logo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(233,69,96,0.15);
+    border: 1px solid rgba(233,69,96,0.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .logo-tag span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #E94560;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .logo-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #E94560;
+  }
+  .app-name {
+    font-size: 72px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .tagline {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .tagline strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+  }
+
+  /* 미리보기 카드 */
+  .preview-cards {
+    display: flex;
+    gap: 12px;
+    margin: 32px 0;
+    overflow: hidden;
+  }
+  .preview-card {
+    flex-shrink: 0;
+    width: 120px;
+    height: 160px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .preview-card .card-bg {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .preview-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+  .preview-card .card-label {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+  .preview-card .card-count {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: white;
+    font-weight: 600;
+  }
+  .card-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+  .card-2 { background: linear-gradient(135deg, #f093fb, #f5576c); transform: translateY(-12px); }
+  .card-3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+  /* CTA 영역 */
+  .cta-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 18px;
+    background: #E94560;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: -0.3px;
+  }
+  .btn-primary .arrow {
+    font-size: 20px;
+  }
+  .privacy-note {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .lock-icon {
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="bg-circle-1"></div>
+  <div class="bg-circle-2"></div>
+
+  <!-- 상태바 -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <span>●●●</span>
+  </div>
+
+  <!-- 로고 -->
+  <div class="logo-section">
+    <div class="logo-tag">
+      <div class="logo-dot"></div>
+      <span>AI 추억 앨범</span>
+    </div>
+    <div class="app-name">Reel</div>
+    <div class="tagline">
+      우리의 추억이<br>
+      <strong>저절로 정리됩니다</strong>
+    </div>
+  </div>
+
+  <!-- 미리보기 카드 -->
+  <div class="preview-cards">
+    <div class="preview-card">
+      <div class="card-bg card-1"></div>
+      <div class="card-overlay"></div>
+      <div class="card-count">24장</div>
+      <div class="card-label">강릉 여행</div>
+    </div>
+    <div class="preview-card">
+      <div class="card-bg card-2"></div>
+      <div class="card-overlay"></div>
+      <div class="card-count">18장</div>
+      <div class="card-label">생일 파티</div>
+    </div>
+    <div class="preview-card">
+      <div class="card-bg card-3"></div>
+      <div class="card-overlay"></div>
+      <div class="card-count">31장</div>
+      <div class="card-label">가족 모임</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <button class="btn-primary">
+      사진 불러오기
+      <span class="arrow">→</span>
+    </button>
+    <div class="privacy-note">
+      <span class="lock-icon">🔒</span>
+      사진은 내 폰 안에서만 분석됩니다
+    </div>
+  </div>
+</div>
+</body>
+</html>
