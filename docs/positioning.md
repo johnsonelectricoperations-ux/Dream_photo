@@ -1,4 +1,4 @@
-Dream Photo — AI 추억 정리 플랫폼
+Reel — AI 추억 정리 플랫폼
 
 Category:
 AI Memory Curation + Physical Print Platform
