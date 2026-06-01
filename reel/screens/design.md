@@ -148,10 +148,10 @@
 | `01_onboarding.html` | 온보딩 (첫 실행 + 권한 요청) | ✅ 완료 |
 | `02_home.html` | 홈 (이벤트 카드 목록) | ✅ 완료 |
 | `03_event_detail.html` | 이벤트 상세 (사진 그리드 + 포토북 CTA) | ✅ 완료 |
-| `04_search.html` | 검색 (키워드 사진 찾기) | 🔲 미완성 |
-| `05_share.html` | 공유 (앨범 링크 공유) | 🔲 미완성 |
-| `06_settings.html` | 설정 (AI 분석 설정·계정) | 🔲 미완성 |
-| `07_photobook.html` | 포토북 주문 플로우 | 🔲 미완성 |
+| `04_search.html` | 검색 (키워드 사진 찾기) | ✅ 완료 |
+| `05_share.html` | 공유 (앨범 링크 공유) | ✅ 완료 |
+| `06_settings.html` | 설정 (AI 분석 설정·계정) | ✅ 완료 |
+| `07_photobook.html` | 포토북 주문 플로우 | ✅ 완료 |
 
 ---
 
